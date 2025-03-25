@@ -13,5 +13,12 @@ UCLASS()
 class UTETRISPROJECT_API ATetrisGM : public AGameMode
 {
 	GENERATED_BODY()
-	
+
+public:
+
+	ATetrisGM();
+
+	void BeginPlay();
+
+	void Tick(float _DeltaTime);
 };

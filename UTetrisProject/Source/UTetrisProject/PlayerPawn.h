@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "BlockPawn.generated.h"
+#include "PlayerPawn.generated.h"
 
 UCLASS()
-class UTETRISPROJECT_API ABlockPawn : public APawn
+class UTETRISPROJECT_API APlayerPawn : public APawn
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this pawn's properties
-	ABlockPawn();
+	APlayerPawn();
 
 protected:
 	// Called when the game starts or when spawned
@@ -26,6 +26,4 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	//UFUNCTION(BlueprintCallable)
-	//void TurnTheBlock();
 };

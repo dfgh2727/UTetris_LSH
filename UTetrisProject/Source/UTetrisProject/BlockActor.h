@@ -34,5 +34,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void AddMesh();
+
 	TMap<EBlockType, UStaticMesh*> MeshMap;
+
+	UStaticMeshComponent* StaticMeshComponent = nullptr;
 };

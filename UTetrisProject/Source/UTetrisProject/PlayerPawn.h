@@ -27,9 +27,15 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UFUNCTION(BlueprintCallable)
-	//void SpawnBlock();
+	void SpawnBlock();
+
+	UFUNCTION(BlueprintCallable)
+	void BlockGoDown();
 
 	void ControlBlock();
 
 	class ABlockActor* Block = nullptr;
+
+	FVector Down = { 0.0, 0.0, -100.0 };
+
 };

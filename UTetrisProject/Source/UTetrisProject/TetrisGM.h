@@ -25,7 +25,20 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetMapOutliner(int width, int height);
 
-	void SpawnBlock();
+	//void SpawnBlock();
+
+	/*UFUNCTION(BlueprintCallable)
+	void BlockGoDown();*/
+
+	/*UFUNCTION(BlueprintCallable)
+	void BlockGoLeft();
+
+	UFUNCTION(BlueprintCallable)
+	void BlockGoRight();*/
+
+	//UFUNCTION(BlueprintCallable)
+	//void BlockTurnAround();
+
 
 	class AMapActor* MapOutliner = nullptr;
 
@@ -33,4 +46,8 @@ public:
 
 	int MapHeight = 0;
 	int MapWidth = 0;
+
+	FVector Down = { 0.0, 0.0, -100.0 };
+	FVector Left = { 0.0, -100.0, 0.0 };
+	FVector Right = { 0.0, 100.0, 0.0 };
 };

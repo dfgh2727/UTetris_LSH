@@ -16,6 +16,20 @@ APlayerPawn::APlayerPawn()
 void APlayerPawn::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (nullptr == Block)
+	{
+		SpawnBlock();
+	}
+	else
+	{
+		FVector CurLocation = Block->GetActorLocation();
+		if (CurLocation.Z < 0.0)
+		{
+			Block->Destroy();
+			Block = nullptr;
+		}
+	}
 	
 }
 
@@ -33,19 +47,27 @@ void APlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 }
 
-//void APlayerPawn::SpawnBlock()
-//{
-//	FVector StartLocation = { 0.0, 0.0, 100.0 };
-//
-//	Block = GetWorld()->SpawnActor<ABlockActor>();
-//	Block->SetActorLocation(StartLocation);
-//}
+void APlayerPawn::SpawnBlock()
+{
+	FVector StartLocation = { 0.0, 0.0, 1000.0 };
+
+	Block = GetWorld()->SpawnActor<ABlockActor>();
+	Block->SetActorLocation(StartLocation);
+}
 
 void APlayerPawn::ControlBlock()
 {
 	if (nullptr != Block)
 	{
 
+	}
+}
+
+void APlayerPawn::BlockGoDown()
+{
+	if (nullptr != Block)
+	{
+		Block->AddActorWorldOffset(Down);
 	}
 }
 

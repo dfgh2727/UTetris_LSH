@@ -19,10 +19,10 @@ void ATetrisGM::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	if (nullptr == Block)
+	/*if (nullptr == Block)
 	{
 		SpawnBlock();
-	}
+	}*/
 
 }
 
@@ -57,10 +57,42 @@ void ATetrisGM::SetMapOutliner(int width, int height)
 }
 
 
-void ATetrisGM::SpawnBlock()
-{
-	FVector StartLocation = { 0.0, MapWidth * 50.0, MapHeight * 100.0 };
+//void ATetrisGM::SpawnBlock()
+//{
+//	FVector StartLocation = { 0.0, MapWidth * 50.0, MapHeight * 100.0 };
+//
+//	Block = GetWorld()->SpawnActor<ABlockActor>();
+//	Block->SetActorLocation(StartLocation);
+//}
+//
+//void ATetrisGM::BlockGoDown()
+//{
+//	if (nullptr != Block)
+//	{
+//		Block->AddActorWorldOffset(Down);
+//	}
+//}
 
-	Block = GetWorld()->SpawnActor<ABlockActor>();
-	Block->SetActorLocation(StartLocation);
-}
+//void ATetrisGM::BlockGoLeft()
+//{
+//	if (nullptr != Block)
+//	{
+//		Block->AddActorWorldOffset(Left);
+//	}
+//}
+//
+//void ATetrisGM::BlockGoRight()
+//{
+//	if (nullptr != Block)
+//	{
+//		Block->AddActorWorldOffset(Right);
+//	}
+//}
+
+//void ATetrisGM::BlockTurnAround()
+//{
+//	if (nullptr != Block)
+//	{
+//		Block->AddActorWorldOffset(Down);
+//	}
+//}

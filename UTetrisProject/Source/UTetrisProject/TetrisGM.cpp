@@ -46,5 +46,4 @@ void ATetrisGM::SetMapOutliner(int width, int height)
 		}
 	
 	}
-
 }

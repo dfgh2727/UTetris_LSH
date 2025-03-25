@@ -36,7 +36,11 @@ public:
 
 	void AddMesh();
 
-	TMap<EBlockType, UStaticMesh*> MeshMap;
+	void SetBlockMesh(int key);
+
+	TMap<int, UStaticMesh*> MeshMap;
 
 	UStaticMeshComponent* StaticMeshComponent = nullptr;
+	
+	int RandInt = 0;
 };

@@ -25,7 +25,7 @@ void ATetrisGM::SetMapOutliner(int width, int height)
 	{
 		for (int j = 0; j < height; ++j)
 		{
-			FVector Location = { i * 100.0, 0.0, j * 100.0 };
+			FVector Location = { 0.0, i * 100.0, j * 100.0 };
 			MapOutliner = GetWorld()->SpawnActor<AMapActor>();
 			MapOutliner->SetActorLocation(Location);
 		}

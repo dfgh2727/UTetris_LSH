@@ -21,13 +21,30 @@ void ATetrisGM::Tick(float _DeltaTime)
 
 void ATetrisGM::SetMapOutliner(int width, int height)
 {
-	for (int i = 0; i < width; ++i)
+	FVector Location = { 0.0, 0.0, 0.0 };
+
+
+	for (int j = 0; j < height; ++j)
 	{
-		for (int j = 0; j < height; ++j)
+		if (j == 0 || j == height - 1)
 		{
-			FVector Location = { 0.0, i * 100.0, j * 100.0 };
-			MapOutliner = GetWorld()->SpawnActor<AMapActor>();
-			MapOutliner->SetActorLocation(Location);
+			for (int i = 0; i < width; i++)
+			{
+				Location = { 0.0, i * 100.0, j * 100.0 };
+				MapOutliner = GetWorld()->SpawnActor<AMapActor>();
+				MapOutliner->SetActorLocation(Location);
+			}
 		}
+		else
+		{
+			for (int i = 0; i < width; i = i + width - 1)
+			{
+				Location = { 0.0, i * 100.0, j * 100.0 };
+				MapOutliner = GetWorld()->SpawnActor<AMapActor>();
+				MapOutliner->SetActorLocation(Location);
+			}
+		}
+	
 	}
+
 }

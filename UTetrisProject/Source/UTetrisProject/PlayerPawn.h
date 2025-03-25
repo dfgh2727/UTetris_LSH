@@ -27,7 +27,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UFUNCTION(BlueprintCallable)
-	void SpawnBlock();
+	//void SpawnBlock();
 
 	void ControlBlock();
 

@@ -25,5 +25,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetMapOutliner(int width, int height);
 
+	void SpawnBlock();
+
 	class AMapActor* MapOutliner = nullptr;
+
+	class ABlockActor* Block = nullptr;
+
+	int MapHeight = 0;
+	int MapWidth = 0;
 };

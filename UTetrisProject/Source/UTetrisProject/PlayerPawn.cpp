@@ -33,13 +33,13 @@ void APlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 }
 
-void APlayerPawn::SpawnBlock()
-{
-	FVector StartLocation = { 0.0, 0.0, 100.0 };
-
-	Block = GetWorld()->SpawnActor<ABlockActor>();
-	Block->SetActorLocation(StartLocation);
-}
+//void APlayerPawn::SpawnBlock()
+//{
+//	FVector StartLocation = { 0.0, 0.0, 100.0 };
+//
+//	Block = GetWorld()->SpawnActor<ABlockActor>();
+//	Block->SetActorLocation(StartLocation);
+//}
 
 void APlayerPawn::ControlBlock()
 {

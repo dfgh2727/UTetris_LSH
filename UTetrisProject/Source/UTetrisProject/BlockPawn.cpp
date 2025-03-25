@@ -32,3 +32,8 @@ void ABlockPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 
 }
 
+//void ABlockPawn::TurnTheBlock()
+//{
+//	FRotator Rotation = { 90.0, 0.0, 0.0 };
+//	AddActorWorldRotation(Rotation);
+//}

@@ -6,6 +6,17 @@
 #include "GameFramework/Actor.h"
 #include "BlockActor.generated.h"
 
+enum class EBlockType
+{
+	EBlock1,
+	EBlock2,
+	EBlock3,
+	EBlock4,
+	EBlock5,
+	EBlock6,
+	EBlock7
+};
+
 UCLASS()
 class UTETRISPROJECT_API ABlockActor : public AActor
 {
@@ -23,4 +34,5 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	TMap<EBlockType, UStaticMesh*> MeshMap;
 };

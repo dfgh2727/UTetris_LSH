@@ -21,4 +21,9 @@ public:
 	void BeginPlay();
 
 	void Tick(float _DeltaTime);
+
+	UFUNCTION(BlueprintCallable)
+	void SetMapOutliner(int width, int height);
+
+	class AMapActor* MapOutliner = nullptr;
 };

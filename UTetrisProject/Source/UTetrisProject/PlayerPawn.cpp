@@ -2,6 +2,7 @@
 
 
 #include "PlayerPawn.h"
+#include "BlockActor.h"
 
 // Sets default values
 APlayerPawn::APlayerPawn()
@@ -30,5 +31,21 @@ void APlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void APlayerPawn::SpawnBlock()
+{
+	FVector StartLocation = { 0.0, 0.0, 100.0 };
+
+	Block = GetWorld()->SpawnActor<ABlockActor>();
+	Block->SetActorLocation(StartLocation);
+}
+
+void APlayerPawn::ControlBlock()
+{
+	if (nullptr != Block)
+	{
+
+	}
 }
 

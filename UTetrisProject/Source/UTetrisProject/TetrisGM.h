@@ -22,30 +22,15 @@ public:
 
 	void Tick(float _DeltaTime);
 
-	UFUNCTION(BlueprintCallable)
-	void SetMapOutliner(int width, int height);
-
-	//void SpawnBlock();
-
 	/*UFUNCTION(BlueprintCallable)
-	void BlockGoDown();*/
-
-	/*UFUNCTION(BlueprintCallable)
-	void BlockGoLeft();
-
-	UFUNCTION(BlueprintCallable)
-	void BlockGoRight();*/
-
-	//UFUNCTION(BlueprintCallable)
-	//void BlockTurnAround();
-
+	void SetMapOutliner(int width, int height);*/
 
 	class AMapActor* MapOutliner = nullptr;
 
 	class ABlockActor* Block = nullptr;
 
-	int MapHeight = 0;
-	int MapWidth = 0;
+	//int MapHeight = 0;
+	//int MapWidth = 0;
 
 	FVector Down = { 0.0, 0.0, -100.0 };
 	FVector Left = { 0.0, -100.0, 0.0 };

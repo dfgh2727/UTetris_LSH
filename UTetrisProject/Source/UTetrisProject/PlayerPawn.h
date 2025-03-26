@@ -41,10 +41,16 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void BlockTurnAround();
 
-
-	void ControlBlock();
-
 	class ABlockActor* Block = nullptr;
+	class AMapActor* MapOutliner = nullptr;
+
+	void SetMapOutliner();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MapSetting")
+	int MapHeight = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MapSetting")
+	int MapWidth = 0;
 
 	FVector Down = { 0.0, 0.0, -100.0 };
 	FVector Left = { 0.0, -100.0, 0.0 };

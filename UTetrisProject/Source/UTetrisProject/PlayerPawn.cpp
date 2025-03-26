@@ -3,6 +3,7 @@
 
 #include "PlayerPawn.h"
 #include "BlockActor.h"
+#include "MapActor.h"
 
 // Sets default values
 APlayerPawn::APlayerPawn()
@@ -16,7 +17,8 @@ APlayerPawn::APlayerPawn()
 void APlayerPawn::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	SetMapOutliner();
 }
 
 // Called every frame
@@ -48,19 +50,40 @@ void APlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 void APlayerPawn::SpawnBlock()
 {
-	FVector StartLocation = { 0.0, 0.0, 1000.0 };
+	FVector StartLocation = { 0.0, MapWidth * 50.0, (MapHeight - 2) * 100.0};
 
 	Block = GetWorld()->SpawnActor<ABlockActor>();
 	Block->SetActorLocation(StartLocation);
 }
 
-void APlayerPawn::ControlBlock()
+void APlayerPawn::SetMapOutliner()
 {
-	if (nullptr != Block)
+	FVector Location = { 0.0, 0.0, 0.0 };
+
+	for (int j = 0; j < MapHeight; ++j)
 	{
+		if (j == 0 || j == MapHeight - 1)
+		{
+			for (int i = 0; i < MapWidth; i++)
+			{
+				Location = { 0.0, i * 100.0, j * 100.0 };
+				MapOutliner = GetWorld()->SpawnActor<AMapActor>();
+				MapOutliner->SetActorLocation(Location);
+			}
+		}
+		else
+		{
+			for (int i = 0; i < MapWidth; i = i + MapWidth - 1)
+			{
+				Location = { 0.0, i * 100.0, j * 100.0 };
+				MapOutliner = GetWorld()->SpawnActor<AMapActor>();
+				MapOutliner->SetActorLocation(Location);
+			}
+		}
 
 	}
 }
+
 
 void APlayerPawn::BlockGoDown()
 {

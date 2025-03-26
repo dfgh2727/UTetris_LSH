@@ -13,5 +13,14 @@ UCLASS()
 class UTETRISPROJECT_API ABlockController : public APlayerController
 {
 	GENERATED_BODY()
+
+public:
+	ABlockController();
+
+	void BeginPlay() override;
+	void SetupInputComponent() override;
+
+	/*void ActorGoDown();*/
+
 	
 };

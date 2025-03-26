@@ -58,4 +58,7 @@ public:
 
 	FRotator Rotation = { 0.0, 0.0, 90.0 };
 
+	FVector PrevLocation = { 0.0, 0.0, 0.0 };
+	FVector CurLocation = { 0.0, 0.0, 0.0 };
+
 };

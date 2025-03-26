@@ -32,7 +32,7 @@ void APlayerPawn::Tick(float DeltaTime)
 	}
 	else
 	{
-		FVector CurLocation = Block->GetActorLocation();
+		CurLocation = Block->GetActorLocation();
 		if (CurLocation.Z < 0.0)
 		{
 			Block->Destroy();
@@ -89,7 +89,9 @@ void APlayerPawn::BlockGoDown()
 {
 	if (nullptr != Block)
 	{
+		//PrevLocation = CurLocation;
 		Block->AddActorWorldOffset(Down);
+		//CurLocation = Block->GetActorLocation();
 	}
 }
 

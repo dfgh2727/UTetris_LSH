@@ -46,6 +46,8 @@ public:
 
 	void SetMapOutliner();
 
+	void BlockTheBlock(FVector Vector);
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MapSetting")
 	int MapHeight = 0;
 

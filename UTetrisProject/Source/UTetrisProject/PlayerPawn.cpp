@@ -19,6 +19,8 @@ void APlayerPawn::BeginPlay()
 	Super::BeginPlay();
 
 	SetMapOutliner();
+
+	//FHitResult Result
 }
 
 // Called every frame
@@ -89,9 +91,9 @@ void APlayerPawn::BlockGoDown()
 {
 	if (nullptr != Block)
 	{
-		//PrevLocation = CurLocation;
+		PrevLocation = Block->GetActorLocation();
 		Block->AddActorWorldOffset(Down);
-		//CurLocation = Block->GetActorLocation();
+		BlockTheBlock(PrevLocation);
 	}
 }
 
@@ -99,7 +101,9 @@ void APlayerPawn::BlockGoLeft()
 {
 	if (nullptr != Block)
 	{
+		PrevLocation = Block->GetActorLocation();
 		Block->AddActorWorldOffset(Left);
+		BlockTheBlock(PrevLocation);
 	}
 }
 
@@ -107,7 +111,9 @@ void APlayerPawn::BlockGoRight()
 {
 	if (nullptr != Block)
 	{
+		PrevLocation = Block->GetActorLocation();
 		Block->AddActorWorldOffset(Right);
+		BlockTheBlock(PrevLocation);
 	}
 }
 
@@ -115,7 +121,22 @@ void APlayerPawn::BlockTurnAround()
 {
 	if (nullptr != Block)
 	{
+		PrevLocation = Block->GetActorLocation();
 		Block->AddActorWorldRotation(Rotation);
+		BlockTheBlock(PrevLocation);
+	}
+}
+
+void APlayerPawn::BlockTheBlock(FVector Vector)
+{
+	FVector BlockPos = Block->GetActorLocation();
+	if (BlockPos.Y < 100.0 || BlockPos.Y >= (MapWidth - 1) * 100.0)
+	{
+		Block->SetActorLocation(Vector);
+	}
+	if (BlockPos.Z < 100.0 || BlockPos.Z >= (MapHeight - 1) * 100.0)
+	{
+		Block->SetActorLocation(Vector);
 	}
 }
 

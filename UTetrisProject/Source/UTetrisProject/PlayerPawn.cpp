@@ -16,6 +16,13 @@ APlayerPawn::APlayerPawn()
 void APlayerPawn::BeginPlay()
 {
 	Super::BeginPlay();
+	
+}
+
+// Called every frame
+void APlayerPawn::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
 
 	if (nullptr == Block)
 	{
@@ -30,14 +37,6 @@ void APlayerPawn::BeginPlay()
 			Block = nullptr;
 		}
 	}
-	
-}
-
-// Called every frame
-void APlayerPawn::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
@@ -68,6 +67,22 @@ void APlayerPawn::BlockGoDown()
 	if (nullptr != Block)
 	{
 		Block->AddActorWorldOffset(Down);
+	}
+}
+
+void APlayerPawn::BlockGoLeft()
+{
+	if (nullptr != Block)
+	{
+		Block->AddActorWorldOffset(Left);
+	}
+}
+
+void APlayerPawn::BlockGoRight()
+{
+	if (nullptr != Block)
+	{
+		Block->AddActorWorldOffset(Right);
 	}
 }
 

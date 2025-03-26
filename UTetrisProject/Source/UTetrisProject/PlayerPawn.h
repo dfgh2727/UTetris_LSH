@@ -32,10 +32,18 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void BlockGoDown();
 
+	UFUNCTION(BlueprintCallable)
+	void BlockGoLeft();
+
+	UFUNCTION(BlueprintCallable)
+	void BlockGoRight();
+
 	void ControlBlock();
 
 	class ABlockActor* Block = nullptr;
 
 	FVector Down = { 0.0, 0.0, -100.0 };
+	FVector Left = { 0.0, -100.0, 0.0 };
+	FVector Right = { 0.0, 100.0, 0.0 };
 
 };

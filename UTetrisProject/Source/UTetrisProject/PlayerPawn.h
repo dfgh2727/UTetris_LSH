@@ -48,6 +48,8 @@ public:
 
 	void BlockTheBlock(FVector Vector);
 
+	bool CheckCollisionWithBlock();
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MapSetting")
 	int MapHeight = 0;
 
@@ -62,5 +64,10 @@ public:
 
 	FVector PrevLocation = { 0.0, 0.0, 0.0 };
 	FVector CurLocation = { 0.0, 0.0, 0.0 };
+
+	int Index = 0;
+	bool CollisionCheck = false;
+
+	TMap<int, class ABlockActor*> SpawnedBlockMap;
 
 };

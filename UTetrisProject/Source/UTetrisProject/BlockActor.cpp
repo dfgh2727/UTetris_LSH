@@ -11,8 +11,13 @@ ABlockActor::ABlockActor()
 
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	StaticMeshComponent->SetupAttachment(RootComponent);
+	StaticMeshComponent->SetCollisionResponseToAllChannels(ECR_Overlap);
+	//StaticMeshComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	StaticMeshComponent->SetGenerateOverlapEvents(true);
+	//StaticMeshComponent->OnComponentBeginOverlap.AddDynamic(this, &ABlockActor::OverlapBegin);
 
 	AddMesh();
+	SetActorEnableCollision(true);
 	RandInt = FMath::RandRange(1, 7);
 }
 
@@ -87,3 +92,12 @@ void ABlockActor::SetBlockMesh(int key)
 		StaticMeshComponent->SetStaticMesh(BlockMesh);
 	}
 }
+//void ABlockActor::OverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
+//	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+//{
+//	if (nullptr != Cast<ABlockActor>(OtherActor))
+//	{
+//		CollisionCheck = true;
+//	}
+//}
+

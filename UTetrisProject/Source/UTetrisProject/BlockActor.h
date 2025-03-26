@@ -38,9 +38,16 @@ public:
 
 	void SetBlockMesh(int key);
 
+	//virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
+
+	//UFUNCTION(BlueprintCallable)
+	//void OverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
 	TMap<int, UStaticMesh*> MeshMap;
 
 	UStaticMeshComponent* StaticMeshComponent = nullptr;
 	
 	int RandInt = 0;
+
+	bool CollisionCheck = false;
 };

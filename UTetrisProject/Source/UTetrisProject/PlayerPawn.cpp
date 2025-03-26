@@ -35,12 +35,17 @@ void APlayerPawn::Tick(float DeltaTime)
 	else
 	{
 		CurLocation = Block->GetActorLocation();
-		if (CurLocation.Z < 0.0)
+		if (true == CheckCollisionWithBlock() || CurLocation.Z <= 100.0)
 		{
-			Block->Destroy();
+			CollisionCheck = false;
+			SpawnedBlockMap.Add(Index, Block);
+			Index++;
 			Block = nullptr;
 		}
 	}
+
+	
+	
 }
 
 // Called to bind functionality to input
@@ -84,6 +89,22 @@ void APlayerPawn::SetMapOutliner()
 		}
 
 	}
+}
+
+bool APlayerPawn::CheckCollisionWithBlock()
+{
+	if (Index > 0 && nullptr != Block)
+	{
+		for (int i = 0; i < Index ; ++i)
+		{
+			CollisionCheck = Block->IsOverlappingActor(SpawnedBlockMap[i]);
+			if (true == CollisionCheck)
+			{
+				Block = nullptr;
+			}
+		}
+	}
+	return CollisionCheck;
 }
 
 

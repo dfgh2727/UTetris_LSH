@@ -38,6 +38,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void BlockGoRight();
 
+	UFUNCTION(BlueprintCallable)
+	void BlockTurnAround();
+
+
 	void ControlBlock();
 
 	class ABlockActor* Block = nullptr;
@@ -45,5 +49,7 @@ public:
 	FVector Down = { 0.0, 0.0, -100.0 };
 	FVector Left = { 0.0, -100.0, 0.0 };
 	FVector Right = { 0.0, 100.0, 0.0 };
+
+	FRotator Rotation = { 0.0, 0.0, 90.0 };
 
 };

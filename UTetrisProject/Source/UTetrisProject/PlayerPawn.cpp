@@ -86,3 +86,11 @@ void APlayerPawn::BlockGoRight()
 	}
 }
 
+void APlayerPawn::BlockTurnAround()
+{
+	if (nullptr != Block)
+	{
+		Block->AddActorWorldRotation(Rotation);
+	}
+}
+
